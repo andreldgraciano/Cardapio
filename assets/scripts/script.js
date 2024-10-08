@@ -6,56 +6,61 @@ const cartTotal = document.getElementById("cart-total");
 const checkoutBtn = document.getElementById("checkout-btn");
 const closeModalBtn = document.getElementById("close-modal-btn");
 const cartCounter = document.getElementById("cart-count");
-const addressInput = document.getElementById("");
-const addresWarn = document.getElementById("address-warning");
+const addressInput = document.getElementById("address-input");
+const addressWarn = document.getElementById("address-warning");
+const emptyWarn = document.getElementById("empty-warning");
+const dateVerify = document.getElementById("date-span");
+const banner = document.getElementById("banner");
 
 let cart = [];
 
 // Abrir modal
-cartBtn.addEventListener("click", function() {
+cartBtn.addEventListener("click", function () {
+    hideWarnings();
     updateCartModal();
     cartModal.style.display = "flex";
 });
 
 // Fechar modal
-closeModalBtn.addEventListener("click", function() {
+closeModalBtn.addEventListener("click", function () {
     cartModal.style.display = "none";
 });
 
-// Fechar o modal quando clicar fora
-cartModal.addEventListener("click", function(event) {
-    if(event.target === cartModal){
+cartModal.addEventListener("click", function (event) {
+    // Fechar o modal quando clicar fora
+    if (event.target === cartModal) {
         cartModal.style.display = "none";
     };
 
+    // Adicionar ou remover quantidade de produtos do carrinho no modal
     let parentAddButton = event.target.closest(".add-to-cart-btn");
     let parentRemoveButton = event.target.closest(".remove-from-cart-btn");
-    
-    if(parentAddButton) {
+
+    if (parentAddButton) {
         console.log(parentAddButton);
         const name = parentAddButton.getAttribute("data-name");
         const price = parseFloat(parentAddButton.getAttribute("data-price"));
         addToCart(name, price);
     }
-    
-    if(parentRemoveButton) {
+
+    if (parentRemoveButton) {
         console.log(parentRemoveButton);
         const name = parentRemoveButton.getAttribute("data-name");
         RemoveToCart(name);
     }
 });
 
-menu.addEventListener("click", function(event) {
+menu.addEventListener("click", function (event) {
     let parentAddButton = event.target.closest(".add-to-cart-btn");
     let parentRemoveButton = event.target.closest(".remove-from-cart-btn");
-    
-    if(parentAddButton) {
+
+    if (parentAddButton) {
         const name = parentAddButton.getAttribute("data-name");
         const price = parseFloat(parentAddButton.getAttribute("data-price"));
         addToCart(name, price);
     }
 
-    if(parentRemoveButton) {
+    if (parentRemoveButton) {
         const name = parentRemoveButton.getAttribute("data-name");
         RemoveToCart(name);
     }
@@ -66,7 +71,7 @@ function addToCart(name, price) {
     const existingItem = cart.find(item => item.name === name);
     const quantitySpan = document.querySelector(`.product-quantity[data-name="${name}"]`);
 
-    if(existingItem) {
+    if (existingItem) {
         existingItem.quantity += 1;
         quantitySpan.textContent = existingItem.quantity;
     } else {
@@ -86,7 +91,7 @@ function RemoveToCart(name) {
     const existingItem = cart.find(item => item.name === name);
     const quantitySpan = document.querySelector(`.product-quantity[data-name="${name}"]`);
 
-    if(existingItem && existingItem.quantity > 1) {
+    if (existingItem && existingItem.quantity > 1) {
         existingItem.quantity -= 1;
         quantitySpan.textContent = existingItem.quantity;
     } else if (existingItem && existingItem.quantity === 1) {
@@ -130,11 +135,85 @@ function updateCartModal() {
         `;
 
         total += item.price * item.quantity;
-        
+
         cartItemsContainer.appendChild(cartItemElement);
     });
-    
+
     cartTotal.textContent = total.toLocaleString('pt-BR', { style: "currency", currency: "BRL" });
 
     cartCounter.innerHTML = cart.length;
 };
+
+addressInput.addEventListener("input", function (event) {
+    let inputValue = event.target.value;
+
+    if (inputValue != "") {
+        addressWarn.classList.add("hidden");
+    }
+
+});
+
+
+/*
+ * LIMPAR CARRINHO APOS ENVIAR WPP E FECHAR MODAL
+ */
+checkoutBtn.addEventListener("click", function () {
+    hideWarnings();
+
+    const isOpen = checkRestaurantOpen();
+    if (!isOpen) {
+        alert("Lamentamos. Fora do horário de atendimento.");
+        cartModal.style.display = "none";
+        return;
+    }
+
+    if (cart.length === 0) {
+        emptyWarn.classList.remove("hidden");
+        return;
+    }
+
+    if (addressInput.value === "") {
+        addressWarn.classList.remove("hidden");
+        return;
+    }
+
+    const cartItems = cart.map((item) => {
+        return `${item.quantity} x ${item.name} (R$ ${item.price}) - R$ ${item.price * item.quantity}`;
+    }).join("\n");
+
+
+    // Mudar Telefone
+    const message = `*Itens no carrinho:*\n${cartItems}`;
+    const encodedMessage = encodeURIComponent(message);
+    const phone = "5533991680233";
+    const total = cartTotal.textContent;
+
+    window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
+
+    cartModal.style.display = "none";
+});
+
+function hideWarnings() {
+    addressWarn.classList.add("hidden");
+    emptyWarn.classList.add("hidden");
+}
+
+function checkRestaurantOpen() {
+    const data = new Date();
+    const hora = data.getHours();
+    return hora >= 1 && hora < 23;
+}
+
+const isOpen = checkRestaurantOpen();
+
+if (isOpen) {
+    dateVerify.classList.remove("bg-red-700");
+    dateVerify.classList.add("bg-green-600");
+    cartBtn.removeAttribute("disabled");
+    banner.classList.remove("saturate-[1.7]");
+} else {
+    dateVerify.classList.remove("bg-green-600");
+    dateVerify.classList.add("bg-red-700");
+    cartBtn.setAttribute("disabled", true);
+    banner.classList.add("saturate-[0.3]");
+}
