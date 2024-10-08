@@ -4,6 +4,8 @@
 
 <p align="center"><img src="assets/images/app-cart.png" width="600" alt="Cardapio Logo"></p>
 
+<p align="center"><img src="assets/images/app-wpp.png" width="600" alt="Cardapio Logo"></p>
+
 ## Tecnologias
 - HTML
 - CSS
