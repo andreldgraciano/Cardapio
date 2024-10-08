@@ -19,7 +19,7 @@
 <body>
 
     <!-- Header -->
-    <header class="relative w-full h-[300px] md:h-[420px] bg-white max-w-7xl z-0">
+    <header class="relative w-full h-[300px] xl:h-[420px] bg-white max-w-7xl z-0">
         <div id="banner" class="absolute inset-0 w-full bg-cover bg-center sm:bg-bottom saturate-[1.7] z-10" style="background-image: url('./assets/images/bg.jpg');"></div>
         <div class="absolute w-full h-full flex flex-col justify-end items-center pb-8 z-20">
             <h1
@@ -35,7 +35,7 @@
     </header>
     <!-- Fim Header -->
 
-    <nav class="sticky bg-white py-2 top-0 flex w-full text-2xl md:text-4xl text-center font-bold border-b-2 mb-6">
+    <nav class="sticky bg-white py-2 top-0 flex max-w-7xl w-full text-2xl md:text-4xl text-center font-bold shadow-md shadow-zinc-200 mb-6">
         <a href="#comidas" class="flex-1 border-r-2">Comidas</a>
         <a href="#bebidas" class="flex-1">Bebidas</a>
     </nav>
@@ -51,15 +51,15 @@
         <!-- Grid Comidas -->
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-2">
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/combo-temaki.png" alt="Combo Temaki"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Combo Temaki</p>
                     <p class="text-sm pr-4">Combo de temaki para você não ter que dividir!</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">44,99</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Combo Temaki"
                                 data-price="44.99">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -74,15 +74,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/temaki.png" alt="Temaki"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Temaki</p>
                     <p class="text-sm pr-4">Delicioso Temaki da casa.</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">27,00</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Temaki"
                                 data-price="27.00">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -97,15 +97,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/barca.png" alt="Barca"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Barca</p>
                     <p class="text-sm pr-4">Barca 20 peças</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">124,99</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Barca"
                                 data-price="123.99">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -120,15 +120,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/combo-max.png" alt="Combo Max"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Combo Max</p>
                     <p class="text-sm pr-4">Combo Max 60 peças</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">174,49</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Combo Max"
                                 data-price="174.49">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -143,15 +143,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/combo-hot.png" alt="Combo Hot"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Combo Hot</p>
                     <p class="text-sm pr-4">Combo de Hot 8 unidades</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">24,00</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Combo Hot"
                                 data-price="24.00">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -166,15 +166,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/combo-nigiri.png" alt="Combo Nigiri"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Combo Nigiri</p>
                     <p class="text-sm pr-4">Combo de Nigiri 5 unidades</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">32,99</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Combo Nigiri"
                                 data-price="32.99">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -189,15 +189,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/combo-uramaki.png" alt="Combo Uramaki"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Combo Uramaki</p>
                     <p class="text-sm pr-4">Combo Uramaki 12 unidades</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">30,00</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Combo Uramaki"
                                 data-price="30.00">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -212,15 +212,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/uramaki.png" alt="Uramaki"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Uramaki</p>
                     <p class="text-sm pr-4">Uramaki</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">3,00</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Uramaki"
                                 data-price="3.00">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -245,15 +245,15 @@
         <!-- Grid Bebidas -->
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-2">
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/coca-lata.png" alt="Coca Lata"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Coca Lata</p>
                     <p class="text-sm pr-4">395 ml</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">6,99</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Coca Lata"
                                 data-price="6.99">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -268,15 +268,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/guarana-lata.png" alt="Guaraná Lata"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Guarana Lata</p>
                     <p class="text-sm pr-4">395 ml</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">6,99</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Guaraná Lata"
                                 data-price="6.99">
                                 <i class="fa-solid fa-minus text-lg"></i>
@@ -291,15 +291,15 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 bg-white shadow-md shadow-zinc-200">
+            <div class="flex bg-white shadow-md shadow-zinc-200">
                 <img src="assets/images/agua-garrafa.png" alt="Água Garrafa"
                     class="w-28 h-28 rounded-md object-cover hover:scale-110 hover:-rotate-2 duration-200 mx-auto">
-                <div class="flex flex-col h-full flex-1">
+                <div class="flex flex-col h-full flex-1 p-4">
                     <p class="font-bold">Água Garrafa</p>
                     <p class="text-sm pr-4">600 ml</p>
                     <div class="flex items-center justify-between mt-auto">
                         <p>R$ <span class="text-lg italic">3,50</span></p>
-                        <div class="flex mr-4 mb-4 gap-2 items-center">
+                        <div class="flex gap-2 items-center">
                             <button class="remove-from-cart-btn px-2 py-1 border rounded-md shadow" data-name="Água Garrafa"
                                 data-price="3.50">
                                 <i class="fa-solid fa-minus text-lg"></i>
