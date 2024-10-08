@@ -12,6 +12,14 @@ const emptyWarn = document.getElementById("empty-warning");
 const dateVerify = document.getElementById("date-span");
 const banner = document.getElementById("banner");
 const quantityElements = document.querySelectorAll('.product-quantity');
+let paymentValue = document.querySelector('input[name="payment"]:checked').value;
+
+
+// FIXXX
+function updatePayment() {
+    const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+    paymentValue = selectedPayment;
+}
 
 let cart = [];
 
@@ -191,10 +199,10 @@ checkoutBtn.addEventListener("click", function () {
 
     if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
         // resetApp();
-        window.open(`https://wa.me/${phone}?text=${encodedMessage}%0A%0AEndereço: ${address}%0A%0A *Total: ${total}*`, "_blank");
+        window.open(`https://wa.me/${phone}?text=${encodedMessage}%0A%0AEndereço: *${address}*%0AForma de Pagamento: *${paymentValue}*%0ATotal: *${total}*`, "_blank");
     } else { 
         // resetApp();
-        window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0A%0AEndereço: ${address}%0A%0A *Total: ${total}*`, "_blank");
+        window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0A%0AEndereço: *${address}*%0AForma de Pagamento: *${paymentValue}*%0ATotal: *${total}*`, "_blank");
     }
 
     // window.open(`https://wa.me/${phone}?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");

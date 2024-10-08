@@ -337,6 +337,21 @@
             <p id="address-warning" class="hidden text-red-700">Digite seu endereço completo!</p>
             <p id="empty-warning" class="hidden text-red-700">Carrinho vazio. Selecione alguns itens!</p>
 
+            <div class="flex gap-2">
+                <label class="flex items-center">
+                    <input type="radio" name="payment" value="Pix" class="appearance-none h-3 w-3 border border-gray-500 rounded-full checked:bg-green-600 checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-500" onclick="updatePayment()" checked>
+                    <span class="ml-2">Pix</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="payment" value="Dinheiro" class="appearance-none h-3 w-3 border border-gray-500 rounded-full checked:bg-green-600 checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-500" onclick="updatePayment()">
+                    <span class="ml-2">Dinheiro</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="payment" value="Cartão" class="appearance-none h-3 w-3 border border-gray-500 rounded-full checked:bg-green-600 checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-500" onclick="updatePayment()">
+                    <span class="ml-2">Cartão</span>
+                </label>
+            </div>
+
             <div class="flex justify-between items-center w-full">
                 <button id="close-modal-btn" class="bg-white border border-zinc-100 shadow-lg shadow-zinc-400 rounded text-black px-4 py-1">Fechar</button>
                 <button id="checkout-btn" class="bg-green-500 shadow-lg shadow-stone-400 rounded text-white px-4 py-1">Finalizar Pedido</button>
