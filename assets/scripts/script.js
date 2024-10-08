@@ -11,6 +11,7 @@ const addressWarn = document.getElementById("address-warning");
 const emptyWarn = document.getElementById("empty-warning");
 const dateVerify = document.getElementById("date-span");
 const banner = document.getElementById("banner");
+const quantityElements = document.querySelectorAll('.product-quantity');
 
 let cart = [];
 
@@ -150,7 +151,6 @@ addressInput.addEventListener("input", function (event) {
     if (inputValue != "") {
         addressWarn.classList.add("hidden");
     }
-
 });
 
 
@@ -187,13 +187,14 @@ checkoutBtn.addEventListener("click", function () {
     const encodedMessage = encodeURIComponent(message);
     const phone = "5533991680233";
     const total = cartTotal.textContent;
+    const address = addressInput.value;
 
     if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        // Dispositivo mobile
-        window.open(`https://wa.me/${phone}?text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}*`, "_blank");
-    } else {
-        // Dispositivo desktop
-        window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}*`, "_blank");
+        // resetApp();
+        window.open(`https://wa.me/${phone}?text=${encodedMessage}%0A%0AEndereço: ${address}%0A%0A *Total: ${total}*`, "_blank");
+    } else { 
+        // resetApp();
+        window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0A%0AEndereço: ${address}%0A%0A *Total: ${total}*`, "_blank");
     }
 
     // window.open(`https://wa.me/${phone}?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
@@ -202,6 +203,18 @@ checkoutBtn.addEventListener("click", function () {
 
     cartModal.style.display = "none";
 });
+
+function resetApp() {
+    cart.length = 0;
+    cart.forEach(item => {
+        item.quantity = 0;
+    });
+    quantityElements.forEach(element => {
+        element.textContent = '0';
+    });
+    updateCartModal();
+    addressInput.value = "";
+}
 
 function hideWarnings() {
     addressWarn.classList.add("hidden");
