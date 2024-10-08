@@ -188,7 +188,15 @@ checkoutBtn.addEventListener("click", function () {
     const phone = "5533991680233";
     const total = cartTotal.textContent;
 
-    window.open(`https://wa.me/${phone}?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+        // Dispositivo mobile
+        window.open(`https://wa.me/${phone}?text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}*`, "_blank");
+    } else {
+        // Dispositivo desktop
+        window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}*`, "_blank");
+    }
+
+    // window.open(`https://wa.me/${phone}?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
 
     // window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
 
