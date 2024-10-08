@@ -188,7 +188,9 @@ checkoutBtn.addEventListener("click", function () {
     const phone = "5533991680233";
     const total = cartTotal.textContent;
 
-    window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
+    window.open(`https://wa.me/${phone}?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
+
+    // window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMessage}%0AEndereço: ${addressInput.value}%0A *Total: ${total}* `, "_blank");
 
     cartModal.style.display = "none";
 });
