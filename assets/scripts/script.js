@@ -161,10 +161,6 @@ addressInput.addEventListener("input", function (event) {
     }
 });
 
-
-/*
- * LIMPAR CARRINHO APOS ENVIAR WPP E FECHAR MODAL
- */
 checkoutBtn.addEventListener("click", function () {
     hideWarnings();
 
@@ -190,7 +186,6 @@ checkoutBtn.addEventListener("click", function () {
     }).join("\n");
 
 
-    // Mudar Telefone
     const message = `*Itens no carrinho:*\n${cartItems}`;
     const encodedMessage = encodeURIComponent(message);
     const phone = "5532998446581";
@@ -232,7 +227,8 @@ function hideWarnings() {
 function checkRestaurantOpen() {
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 1 && hora < 23;
+    // return hora >= 18 && hora < 23;
+    return 1;
 }
 
 const isOpen = checkRestaurantOpen();
