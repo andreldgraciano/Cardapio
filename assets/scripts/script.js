@@ -193,7 +193,7 @@ checkoutBtn.addEventListener("click", function () {
     // Mudar Telefone
     const message = `*Itens no carrinho:*\n${cartItems}`;
     const encodedMessage = encodeURIComponent(message);
-    const phone = "5533991680233";
+    const phone = "5532998446581";
     const total = cartTotal.textContent;
     const address = addressInput.value;
 
