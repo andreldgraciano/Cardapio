@@ -237,10 +237,8 @@ if (isOpen) {
     dateVerify.classList.remove("bg-red-700");
     dateVerify.classList.add("bg-green-600");
     cartBtn.removeAttribute("disabled");
-    banner.classList.remove("saturate-[1.7]");
 } else {
     dateVerify.classList.remove("bg-green-600");
     dateVerify.classList.add("bg-red-700");
     cartBtn.setAttribute("disabled", true);
-    banner.classList.add("saturate-[0.3]");
 }
