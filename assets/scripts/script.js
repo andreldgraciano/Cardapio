@@ -188,7 +188,7 @@ checkoutBtn.addEventListener("click", function () {
 
     const message = `*Itens no carrinho:*\n${cartItems}`;
     const encodedMessage = encodeURIComponent(message);
-    const phone = "5532998446581";
+    const phone = "5532991744379";
     const total = cartTotal.textContent;
     const address = addressInput.value;
 
